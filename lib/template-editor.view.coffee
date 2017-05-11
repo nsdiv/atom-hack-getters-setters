@@ -4,7 +4,7 @@ module.exports =
 class TemplateEditorView extends View
 
     @content: (params)->
-        @div class: 'php-getters-setters overlay from-top', =>
+        @div class: 'hack-getters-setters overlay from-top', =>
             @h1 "Template Editor"
             @div class: 'col-md-6', =>
                 @h2 "Getter"
@@ -51,7 +51,7 @@ class TemplateEditorView extends View
 
         console.log getterTemplate
 
-        atom.config.set 'php-getters-setters.getterTemplate', """#{getterTemplate}"""
-        atom.config.set 'php-getters-setters.setterTemplate', """#{setterTemplate}"""
+        atom.config.set 'hack-getters-setters.getterTemplate', """#{getterTemplate}"""
+        atom.config.set 'hack-getters-setters.setterTemplate', """#{setterTemplate}"""
 
         @destroy()

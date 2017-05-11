@@ -4,7 +4,7 @@ module.exports =
 class NewPropertView extends View
 
     @content: (params)->
-        @div class: 'php-getters-setters overlay from-top', =>
+        @div class: 'hack-getters-setters overlay from-top', =>
             @h1 "Add new Property"
             @form role: "form", =>
 

@@ -55,16 +55,16 @@ module.exports =
 
     activate: (state) ->
         atom.commands.add 'atom-workspace',
-        "php-getters-setters:allGettersSetter": => @allGettersSetter()
-        "php-getters-setters:allGetters":       => @allGetters()
-        "php-getters-setters:allSetters":       => @allSetters()
-        "php-getters-setters:showUI":           => @showUI()
-        "php-getters-setters:newPropery":       => @showAddProperty()
-        "php-getters-setters:templateEditor":   => @showTemplateEditor()
+        "hack-getters-setters:allGettersSetter": => @allGettersSetter()
+        "hack-getters-setters:allGetters":       => @allGetters()
+        "hack-getters-setters:allSetters":       => @allSetters()
+        "hack-getters-setters:showUI":           => @showUI()
+        "hack-getters-setters:newPropery":       => @showAddProperty()
+        "hack-getters-setters:templateEditor":   => @showTemplateEditor()
 
 
     parse: ->
-        ignoredTypeHints = atom.config.get 'php-getters-setters.doNotTypeHint'
+        ignoredTypeHints = atom.config.get 'hack-getters-setters.doNotTypeHint'
         bc     = new BaseCommand()
         parser = new PhpParser(ignoredTypeHints)
 
@@ -90,8 +90,8 @@ module.exports =
     showTemplateEditor: ->
         editor = atom.workspace.getActiveTextEditor()
 
-        getter = atom.config.get 'php-getters-setters.getterTemplate'
-        setter = atom.config.get 'php-getters-setters.setterTemplate'
+        getter = atom.config.get 'hack-getters-setters.getterTemplate'
+        setter = atom.config.get 'hack-getters-setters.setterTemplate'
 
         ui = new TemplateEditorView(setter: setter, getter:getter, caller: @)
 
@@ -100,8 +100,8 @@ module.exports =
     showUI: ->
         editor = atom.workspace.getActiveTextEditor()
 
-        unless editor.getGrammar().scopeName is 'text.html.php' or editor.getGrammar().scopeName is 'source.php'
-            alert ('this is not a PHP file')
+        unless editor.getGrammar().scopeName is 'text.html.hack' or editor.getGrammar().scopeName is 'source.php'
+            alert ('this is not a Hack file')
             return
 
         data = @parse()
@@ -128,8 +128,8 @@ module.exports =
 
     allGettersSetter: (variables) ->
         editor = atom.workspace.getActiveTextEditor()
-        unless editor.getGrammar().scopeName is 'text.html.php' or editor.getGrammar().scopeName is 'source.php'
-            alert ('this is not a PHP file')
+        unless editor.getGrammar().scopeName is 'text.html.hack' or editor.getGrammar().scopeName is 'source.php'
+            alert ('this is not a Hack file')
             return
 
         data = @parse()
@@ -138,7 +138,7 @@ module.exports =
 
         cw = new TemplateManager(functions)
 
-        generateSettersFirst = atom.config.get 'php-getters-setters.generateSettersFirst'
+        generateSettersFirst = atom.config.get 'hack-getters-setters.generateSettersFirst'
 
         code = ''
         for variable in variables

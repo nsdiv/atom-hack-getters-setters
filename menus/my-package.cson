@@ -4,15 +4,15 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'PHP Getters and Setters'
+      'label': 'Hack Getters and Setters'
       'submenu': [
-        { 'label': 'Generate All', 'command': 'php-getters-setters:allGettersSetter' }
-        { 'label': 'Generate Getters', 'command': 'php-getters-setters:allGetters' }
-        { 'label': 'Generate Setters', 'command': 'php-getters-setters:allSetters' }
+        { 'label': 'Generate All', 'command': 'hack-getters-setters:allGettersSetter' }
+        { 'label': 'Generate Getters', 'command': 'hack-getters-setters:allGetters' }
+        { 'label': 'Generate Setters', 'command': 'hack-getters-setters:allSetters' }
         { '-': '-'}
-        { 'label': 'Open UI', 'command': 'php-getters-setters:showUI' }
-        { 'label': 'Template Editor', 'command': 'php-getters-setters:templateEditor' }
-        # { 'label': 'Add Property', 'command': 'php-getters-setters:newPropery' }
+        { 'label': 'Open UI', 'command': 'hack-getters-setters:showUI' }
+        { 'label': 'Template Editor', 'command': 'hack-getters-setters:templateEditor' }
+        # { 'label': 'Add Property', 'command': 'hack-getters-setters:newPropery' }
       ]
     ]
   }

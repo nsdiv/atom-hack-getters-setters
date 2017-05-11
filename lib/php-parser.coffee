@@ -2,7 +2,7 @@ Variable = require './variable'
 
 
 module.exports =
-class PhpParser
+class HackParser
     variableRegExp : /((?:private|public|protected)[ ]{0,}(?:final|static)?[ ]{0,}(?:\$.*?)[ |=|;].*)/g
     functionRegExp : /function[ ]{0,}(.*)[ ]{0,}\(/g
     content        : ''

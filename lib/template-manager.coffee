@@ -3,10 +3,10 @@ module.exports =
 class TemplateManager
 
     constructor: (@functions)->
-        @psrMethodNames   = atom.config.get 'php-getters-setters.camelCasedMethodNames'
-        @ignoredTypeHints = atom.config.get 'php-getters-setters.doNotTypeHint'
-        @getterTemplate   = atom.config.get 'php-getters-setters.getterTemplate'
-        @setterTemplate   = atom.config.get 'php-getters-setters.setterTemplate'
+        @psrMethodNames   = atom.config.get 'hack-getters-setters.camelCasedMethodNames'
+        @ignoredTypeHints = atom.config.get 'hack-getters-setters.doNotTypeHint'
+        @getterTemplate   = atom.config.get 'hack-getters-setters.getterTemplate'
+        @setterTemplate   = atom.config.get 'hack-getters-setters.setterTemplate'
 
     getCamelCasedVariableName: (variable) ->
         parts = variable.split('_')

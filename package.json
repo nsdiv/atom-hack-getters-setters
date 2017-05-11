@@ -1,11 +1,11 @@
 {
-  "name": "php-getters-setters",
-  "main": "./lib/php-getters-setters",
+  "name": "hack-getters-setters",
+  "main": "./lib/hack-getters-setters",
   "version": "0.5.5",
-  "description": "generate getters and setters for your php class",
+  "description": "generate getters and setters for your Hack class",
   "repository": {
     "type": "git",
-    "url": "https://github.com/francodacosta/atom-php-getters-setters"
+    "url": "https://github.com/nsdiv/atom-hack-getters-setters"
   },
   "license": "MIT",
   "engines": {

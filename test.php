@@ -1,4 +1,5 @@
-<?php
+<?hh // strict
+// Copyright 2004-present Facebook. All Rights Reserved.
 
 namespace Flooved\Docs\ApiBundle\Entity;
 
@@ -18,7 +19,7 @@ class Job extends AbstractEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private int $id;
 
     /**
      * the job id
@@ -27,26 +28,26 @@ class Job extends AbstractEntity
      *
      * @ORM\Column(type="string", length=255)
      */
-    private $code;
+    private string $code;
 
     /**
      * snake cased var
      *
      * @var string
      */
-    private $snaked_case_var;
+    private string $snaked_case_var;
 
     /**
      * private underscore variable
      *
      * @var string
      */
-    private $_underscored;
+    private string $_underscored;
 
     /**
      * @var string
      */
-    private $smartVariableName;
+    private string $smartVariableName;
 
 
     public function __construct()

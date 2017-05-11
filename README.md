@@ -1,7 +1,7 @@
-PHP Getters and Setters
+Hack Getters and Setters
 =======================
 
-With PHP Getters and Setters you can automatically generate _Getters_ and _Setters_ for your php classes.
+With Hack Getters and Setters you can automatically generate _Getters_ and _Setters_ for your Hack classes.
 
 The code produced is PSR compatible
 
@@ -16,10 +16,10 @@ Features:
 
 
 
-**Example PHP Code**
+**Example Hack Code**
 
 
-```php
+```Hack
 class test
 {
     /**
@@ -33,7 +33,7 @@ class test
 
 **Example class after generating Getters and Setters**
 
-```php
+```Hack
 class test
 {
     /**
@@ -96,10 +96,10 @@ __setterTemplate__: the template for the setter
 
 ## Default templates
 
-A rudimentary template editor is available at ```Packages -> PHP Getters and Setters -> Template Editor```
+A rudimentary template editor is available at ```Packages -> Hack Getters and Setters -> Template Editor```
 
 ### Getter
-```php
+```Hack
 \ \ \ \ /**\n
 \ \ \ \ * Get the value of %description% \n
 \ \ \ \ * \n
@@ -113,7 +113,7 @@ A rudimentary template editor is available at ```Packages -> PHP Getters and Set
 ```
 
 ### Setter
-```php
+```Hack
 \ \ \ \ /** \n
 \ \ \ \ * Set the value of %description% \n
 \ \ \ \ * \n

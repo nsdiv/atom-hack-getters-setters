@@ -4,8 +4,8 @@ class BaseCommand
     appliesToCurrentEditor: ->
         editor = Workspace.getActiveEditor()
 
-        unless editor.getGrammar().scopeName is 'text.html.php'
-            console.warn "Cannot run for non php files"
+        unless editor.getGrammar().scopeName is 'text.html.hack'
+            console.warn "Cannot run for non hack files"
             return false
 
         return true

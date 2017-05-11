@@ -4,7 +4,7 @@ module.exports =
 class UIView extends View
 
     @content: (params)->
-        @div class: 'php-getters-setters overlay from-top', =>
+        @div class: 'hack-getters-setters overlay from-top', =>
             @h1 "Getters and Setters"
             @p "select the properties to generate accessors methods for"
             # @ul class: 'var-list', =>
@@ -60,7 +60,7 @@ class UIView extends View
         @modalPanel = atom.workspace.addModalPanel(item: @, visible: true)
 
     getElement: ->
-        return @find('.php-getters-setters.overlay')
+        return @find('.hack-getters-setters.overlay')
 
     generate: ->
         checked = @find('.var-list input:checked')
