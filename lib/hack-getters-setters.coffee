@@ -78,8 +78,8 @@ module.exports =
     showAddProperty: ->
         editor = atom.workspace.getActiveTextEditor()
 
-        unless editor.getGrammar().scopeName is 'text.html.php' or editor.getGrammar().scopeName is 'source.php'
-            alert ('this is not a PHP file')
+        unless editor.getGrammar().scopeName is 'text.html.hack' or editor.getGrammar().scopeName is 'source.php'
+            alert ('this is not a Hack file')
             return
 
 
@@ -155,8 +155,8 @@ module.exports =
 
     allGetters: (variables) ->
         editor = atom.workspace.getActiveTextEditor()
-        unless editor.getGrammar().scopeName is 'text.html.php' or editor.getGrammar().scopeName is 'source.php'
-            alert ('this is not a PHP file')
+        unless editor.getGrammar().scopeName is 'text.html.hack' or editor.getGrammar().scopeName is 'source.php'
+            alert ('this is not a Hack file')
             return
 
         data = @parse()
@@ -175,8 +175,8 @@ module.exports =
 
     allSetters: (variables) ->
         editor = atom.workspace.getActiveTextEditor()
-        unless editor.getGrammar().scopeName is 'text.html.php' or editor.getGrammar().scopeName is 'source.php'
-            alert ('this is not a PHP file')
+        unless editor.getGrammar().scopeName is 'text.html.hack' or editor.getGrammar().scopeName is 'source.php'
+            alert ('this is not a Hack file')
             return
 
         data = @parse()

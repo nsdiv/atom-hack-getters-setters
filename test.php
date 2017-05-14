@@ -45,9 +45,9 @@ class Job extends AbstractEntity
     private string $_underscored;
 
     /**
-     * @var string
+     * @var Job
      */
-    private string $smartVariableName;
+    private Job $smartVariableName;
 
 
     public function __construct()
