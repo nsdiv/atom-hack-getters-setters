@@ -1,4 +1,4 @@
-PhpParser = require '../lib/php-parser'
+HackParser = require '../lib/hack-parser'
 
 describe "PHP parser", ->
   it "parses variables and functions", ->
@@ -15,7 +15,7 @@ describe "PHP parser", ->
 
         public function foo();
         '''
-    parser = new PhpParser()
+    parser = new HackParser()
     parser.setContent(contents)
 
     expectedResult = [ { name : 'id', type : 'mixed', description : 'my description', scopeSetter : 'protected', scopeGetter : 'protected' } ]

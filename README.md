@@ -27,7 +27,7 @@ class test
      *
      * @var AbcClass
      */
-    private $foo;
+    private int $foo;
 }
 ```
 

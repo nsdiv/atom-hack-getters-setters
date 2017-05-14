@@ -1,5 +1,5 @@
 BaseCommand        = require './base-command'
-PhpParser          = require './php-parser'
+HackParser          = require './hack-parser'
 TemplateManager    = require './template-manager'
 UIView             = require './ui.view'
 NewPropertyView    = require './new-property.view'
@@ -29,7 +29,7 @@ module.exports =
 \ \ \ \ * \n
 \ \ \ \ * @return %type%\n
 \ \ \ \ */\n
-\ \ \ %scope% function %methodName%()\n
+\ \ \ %scope% function %methodName%(): %type%\n
 \ \ \ {\n
 \ \ \ \ \ \ \ return $this->%variable%;\n
 \ \ \ }\n
@@ -45,11 +45,11 @@ module.exports =
 \ \ \ \ * \n
 \ \ \ \ * @return self\n
 \ \ \ \ */\n
-\ \ \ %scope% function %methodName%(%typeHint%$%variable%)\n
+\ \ \ %scope% function %methodName%(%typeHint%$%variable%): void\n
 \ \ \ {\n
 \ \ \ \ \ \ \ $this->%variable% = $%variable%;\n
 \n
-\ \ \ \ \ \ \ return $this;\n
+\ \ \ \ \ \ \ return;\n
 \ \ \ }\n
 \n"
 
@@ -66,7 +66,7 @@ module.exports =
     parse: ->
         ignoredTypeHints = atom.config.get 'hack-getters-setters.doNotTypeHint'
         bc     = new BaseCommand()
-        parser = new PhpParser(ignoredTypeHints)
+        parser = new HackParser(ignoredTypeHints)
 
         parser.setContent(bc.getEditorContents())
 
