@@ -50,7 +50,10 @@ class Job extends AbstractEntity
     private Job $smartVariableName;
 
 
-    public function __construct()
+    public function __construct(
+      private int $constructInt,
+      private Entity $constructObj,
+    )
     {
         $this->started = new \DateTime;
         $this->conversionDone = false;

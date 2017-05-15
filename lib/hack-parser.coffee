@@ -3,7 +3,7 @@ Variable = require './variable'
 
 module.exports =
 class HackParser
-    variableRegExp : /((?:private|public|protected)[ ]{0,}(?:final|static)?[ ]{0,}(?:[a-zA-Z0-9_]*)[ ]{0,}(?:\$.*)[ |=|;].*)/g
+    variableRegExp : /((?:private|public|protected)[ ]{0,}(?:final|static)?[ ]{0,}(?:[\w]*)[ ]{0,}(?:\$.*)[ |=|;|,].*)/g
     functionRegExp : /function[ ]{0,}(.*)[ ]{0,}\(/g
     content        : ''
 
