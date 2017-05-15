@@ -20,52 +20,277 @@ Features:
 
 
 ```Hack
-class test
+class Job extends AbstractEntity
 {
     /**
-     * foo container
-     *
-     * @var AbcClass
+     * @protected
+     * @ORM\Column( type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private int $foo;
+    private int $id;
+
+    /**
+     * the job id
+     * @read-only
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $code;
+
+    /**
+     * snake cased var
+     *
+     * @var string
+     */
+    private string $snaked_case_var;
+
+    /**
+     * private underscore variable
+     *
+     * @var string
+     */
+    private string $_underscored;
+
+    /**
+     * @var Job
+     */
+    private Job $smartVariableName;
+
+
+    public function __construct(
+      private int $constructInt,
+      private Entity $constructObj,
+    )
+    {
+        $this->started = new \DateTime;
+        $this->conversionDone = false;
+    }
+
 }
 ```
 
 **Example class after generating Getters and Setters**
 
 ```Hack
-class test
+class Job extends AbstractEntity
 {
     /**
-     * foo container
-     *
-     * @var AbcClass
+     * @protected
+     * @ORM\Column( type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $foo;
+    private int $id;
 
     /**
-     * Gets the foo container.
+     * the job id
+     * @read-only
+     * @var string
      *
-     * @return AbcClass
+     * @ORM\Column(type="string", length=255)
      */
-    public function getFoo()
+    private string $code;
+
+    /**
+     * snake cased var
+     *
+     * @var string
+     */
+    private string $snaked_case_var;
+
+    /**
+     * private underscore variable
+     *
+     * @var string
+     */
+    private string $_underscored;
+
+    /**
+     * @var Job
+     */
+    private Job $smartVariableName;
+
+
+    public function __construct(
+      private int $constructInt,
+      private Entity $constructObj,
+    )
     {
-        return $this->foo;
+        $this->started = new \DateTime;
+        $this->conversionDone = false;
+    }
+
+
+    /**
+     * Get the value of Id
+     *
+     * @return int
+     */
+    protected function getId(): int
+    {
+        return $this->id;
     }
 
     /**
-     * Sets the foo container.
+     * Set the value of Id
      *
-     * @param AbcClass $foo the foo
+     * @param int id
      *
      * @return self
      */
-    public function setFoo(AbcClass $foo)
+    protected function setId($id): void
     {
-        $this->foo = $foo;
+        $this->id = $id;
 
-        return $this;
+        return;
     }
+
+    /**
+     * Get the value of the job id
+     *
+     * @return string
+     */
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set the value of the job id
+     *
+     * @param string code
+     *
+     * @return self
+     */
+    private function setCode($code): void
+    {
+        $this->code = $code;
+
+        return;
+    }
+
+    /**
+     * Get the value of snake cased var
+     *
+     * @return string
+     */
+    public function getSnakedCaseVar(): string
+    {
+        return $this->snaked_case_var;
+    }
+
+    /**
+     * Set the value of snake cased var
+     *
+     * @param string snaked_case_var
+     *
+     * @return self
+     */
+    public function setSnakedCaseVar($snaked_case_var): void
+    {
+        $this->snaked_case_var = $snaked_case_var;
+
+        return;
+    }
+
+    /**
+     * Get the value of private underscore variable
+     *
+     * @return string
+     */
+    public function getUnderscored(): string
+    {
+        return $this->_underscored;
+    }
+
+    /**
+     * Set the value of private underscore variable
+     *
+     * @param string _underscored
+     *
+     * @return self
+     */
+    public function setUnderscored($_underscored): void
+    {
+        $this->_underscored = $_underscored;
+
+        return;
+    }
+
+    /**
+     * Get the value of Smart Variable Name
+     *
+     * @return Job
+     */
+    public function getSmartVariableName(): Job
+    {
+        return $this->smartVariableName;
+    }
+
+    /**
+     * Set the value of Smart Variable Name
+     *
+     * @param Job smartVariableName
+     *
+     * @return self
+     */
+    public function setSmartVariableName(Job $smartVariableName): void
+    {
+        $this->smartVariableName = $smartVariableName;
+
+        return;
+    }
+
+    /**
+     * Get the value of Construct Int
+     *
+     * @return int
+     */
+    public function getConstructInt(): int
+    {
+        return $this->constructInt;
+    }
+
+    /**
+     * Set the value of Construct Int
+     *
+     * @param int constructInt
+     *
+     * @return self
+     */
+    public function setConstructInt($constructInt): void
+    {
+        $this->constructInt = $constructInt;
+
+        return;
+    }
+
+    /**
+     * Get the value of Construct Obj
+     *
+     * @return Entity
+     */
+    public function getConstructObj(): Entity
+    {
+        return $this->constructObj;
+    }
+
+    /**
+     * Set the value of Construct Obj
+     *
+     * @param Entity constructObj
+     *
+     * @return self
+     */
+    public function setConstructObj(Entity $constructObj): void
+    {
+        $this->constructObj = $constructObj;
+
+        return;
+    }
+
 }
 ```
 
@@ -105,7 +330,7 @@ A rudimentary template editor is available at ```Packages -> Hack Getters and Se
 \ \ \ \ * \n
 \ \ \ \ * @return %type%\n
 \ \ \ \ */\n
-\ \ \ %scope% function %methodName%()\n
+\ \ \ %scope% function %methodName%(): %type%\n
 \ \ \ {\n
 \ \ \ \ \ \ \ return $this->%variable%;\n
 \ \ \ }\n
@@ -121,11 +346,11 @@ A rudimentary template editor is available at ```Packages -> Hack Getters and Se
 \ \ \ \ * \n
 \ \ \ \ * @return self\n
 \ \ \ \ */\n
-\ \ \ %scope% function %methodName%(%typeHint%$%variable%)\n
+\ \ \ %scope% function %methodName%(%typeHint%$%variable%): void\n
 \ \ \ {\n
 \ \ \ \ \ \ \ $this->%variable% = $%variable%;\n
 \n
-\ \ \ \ \ \ \ return $this;\n
+\ \ \ \ \ \ \ return;\n
 \ \ \ }\n
 \n
 ```
