@@ -58,6 +58,10 @@ class Job extends AbstractEntity
      */
     private Job $smartVariableName;
 
+    private array<string> $string_array;
+
+    private dict<string, mixed> $dict;
+
 
     public function __construct(
       private int $constructInt,
@@ -67,7 +71,7 @@ class Job extends AbstractEntity
         $this->started = new \DateTime;
         $this->conversionDone = false;
     }
-
+    
 }
 ```
 
@@ -111,6 +115,10 @@ class Job extends AbstractEntity
      * @var Job
      */
     private Job $smartVariableName;
+
+    private array<string> $string_array;
+
+    private dict<string, mixed> $dict;
 
 
     public function __construct(
@@ -239,6 +247,54 @@ class Job extends AbstractEntity
     public function setSmartVariableName(Job $smartVariableName): void
     {
         $this->smartVariableName = $smartVariableName;
+
+        return;
+    }
+
+    /**
+     * Get the value of String Array
+     *
+     * @return array<string>
+     */
+    public function getStringArray(): array<string>
+    {
+        return $this->string_array;
+    }
+
+    /**
+     * Set the value of String Array
+     *
+     * @param array<string> string_array
+     *
+     * @return self
+     */
+    public function setStringArray(array<string> $string_array): void
+    {
+        $this->string_array = $string_array;
+
+        return;
+    }
+
+    /**
+     * Get the value of Dict
+     *
+     * @return dict<string, mixed>
+     */
+    public function getDict(): dict<string, mixed>
+    {
+        return $this->dict;
+    }
+
+    /**
+     * Set the value of Dict
+     *
+     * @param dict<string, mixed> dict
+     *
+     * @return self
+     */
+    public function setDict(dict<string, mixed> $dict): void
+    {
+        $this->dict = $dict;
 
         return;
     }

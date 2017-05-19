@@ -3,7 +3,7 @@ Variable = require './variable'
 
 module.exports =
 class HackParser
-    variableRegExp : /((?:private|public|protected)[ ]{0,}(?:final|static)?[ ]{0,}(?:[\w]*)[ ]{0,}(?:\$.*)[ |=|;|,].*)/g
+    variableRegExp : /((?:private|public|protected)[ ]{0,}(?:final|static)?[ ]{0,}(?:\w+|(\w+(<[\w ]+[,]?[\w ]*>)?))[ ]{0,}(?:\$.*)[ |=|;|,].*)/g
     functionRegExp : /function[ ]{0,}(.*)[ ]{0,}\(/g
     content        : ''
 
@@ -44,7 +44,7 @@ class HackParser
         docblock = @processDocBlock(lines.slice(end, start).reverse().join('\n'))
 
         name        = line.match(/\$(\w*)/)[1]
-        type        = line.match(/(\w*)[ ]\$(\w*)/)[1];
+        type        = line.match(/((\w+)|\w+(<[\w ]+[,]?[\w ]*>)?)[ ]\$(\w*)/)[1];
         visibility  = line.match(/private|public|protected/)[1] || 'public'
         description = docblock.description
         getterScope = docblock.scopeGetter

@@ -49,6 +49,10 @@ class Job extends AbstractEntity
      */
     private Job $smartVariableName;
 
+    private array<string> $string_array;
+
+    private dict<string, mixed> $dict;
+
 
     public function __construct(
       private int $constructInt,
